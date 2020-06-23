@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1082824317478",
+    "firebase_url": "https://binar-ex.firebaseio.com",
+    "project_id": "binar-ex",
+    "storage_bucket": "binar-ex.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082824317478:android:b9dc3d30ea064f044a24e7",
+        "android_client_info": {
+          "package_name": "com.blank.firestorefirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1082824317478-8r0psaqvs5r42ca99b4i3m3j90vehlu1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blank.firestorefirebase",
+            "certificate_hash": "13f6a1e56f656b63722b4c67c40fb935c9a59cfe"
+          }
+        },
+        {
+          "client_id": "1082824317478-3h123ne3hia1i83rgpqnpk7vsgl2a95l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8nUdo3DSBWTjg33mbA-8-Rc9VHq_UxPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1082824317478-3h123ne3hia1i83rgpqnpk7vsgl2a95l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

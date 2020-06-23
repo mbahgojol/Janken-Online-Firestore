@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".ui.battle.BattleActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvStatus1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Musuh"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/batu1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:contentDescription="batu"
+            android:text="batu" />
+
+        <Button
+            android:id="@+id/gunting1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="gunting"
+            android:text="gunting" />
+
+        <Button
+            android:id="@+id/kertas1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="kertas"
+            android:text="kertas" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Display3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="VS"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvStatus2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Musuh"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/batu2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:contentDescription="batu"
+            android:text="batu" />
+
+        <Button
+            android:id="@+id/gunting2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="gunting"
+            android:text="gunting" />
+
+        <Button
+            android:id="@+id/kertas2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="kertas"
+            android:text="kertas" />
+
+    </LinearLayout>
+
+</LinearLayout>
