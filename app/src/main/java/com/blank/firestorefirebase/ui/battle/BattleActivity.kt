@@ -10,7 +10,7 @@ import com.blank.firestorefirebase.db
 import com.google.firebase.firestore.ktx.toObjects
 import kotlinx.android.synthetic.main.activity_battle.*
 
-class BattleActivity : AppCompatActivity() {
+class BattleActivity : AppCompatActivity(), NavigatorBattle {
 
     private val TAG = BattleActivity::class.simpleName
 
@@ -24,7 +24,9 @@ class BattleActivity : AppCompatActivity() {
         val btn2 = listOf<Button>(batu2, gunting2, kertas2)
         val btn1 = listOf<Button>(batu1, gunting1, kertas1)
 
-        if (enemy) {
+        val controller = Controller(this)
+
+        if (enemy) { // enemy
             tvStatus2.text = "Is you"
             var enemyChose = ""
             var challengerChose = ""
@@ -36,7 +38,9 @@ class BattleActivity : AppCompatActivity() {
                         .collection("challenger")
                         .add(ChoseBattle(btn.contentDescription.toString(), id))
                         .addOnSuccessListener {
-
+                            enemyChose = btn.contentDescription.toString()
+                            if (challengerChose != "")
+                                controller.checkPemenang(enemyChose, challengerChose)
                         }.addOnFailureListener {
                             Log.d(TAG, "Tambah battle gagal : ${it.message}")
                         }
@@ -64,13 +68,18 @@ class BattleActivity : AppCompatActivity() {
                         btn1.forEach {
                             if (it.contentDescription.toString() == model[0].chose) {
                                 it.isEnabled = false
+                                challengerChose = model[0].chose
+                                if (enemyChose != "")
+                                    controller.checkPemenang(enemyChose, challengerChose)
+                            } else {
+                                it.isEnabled = true
                             }
                         }
                     } else {
                         Log.d(TAG, "$source data: null")
                     }
                 }
-        } else {
+        } else { // challanger
             tvStatus1.text = "Is you"
             var enemyChose = ""
             var challengerChose = ""
@@ -82,7 +91,9 @@ class BattleActivity : AppCompatActivity() {
                         .collection("enemy")
                         .add(ChoseBattle(btn.contentDescription.toString(), id))
                         .addOnSuccessListener {
-
+                            challengerChose = btn.contentDescription.toString()
+                            if (enemyChose != "")
+                                controller.checkPemenang(challengerChose, enemyChose)
                         }.addOnFailureListener {
                             Log.d(TAG, "Tambah battle gagal : ${it.message}")
                         }
@@ -110,6 +121,11 @@ class BattleActivity : AppCompatActivity() {
                         btn2.forEach {
                             if (it.contentDescription.toString() == model[0].chose) {
                                 it.isEnabled = false
+                                enemyChose = model[0].chose
+                                if (challengerChose != "")
+                                    controller.checkPemenang(challengerChose, enemyChose)
+                            } else {
+                                it.isEnabled = true
                             }
                         }
                     } else {
@@ -117,5 +133,9 @@ class BattleActivity : AppCompatActivity() {
                     }
                 }
         }
+    }
+
+    override fun onResult(msg: String) {
+        tvVs.text = msg
     }
 }
