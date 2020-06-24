@@ -25,4 +25,16 @@
         android:layout_height="wrap_content"
         android:text="Battle" />
 
+    <Button
+        android:id="@+id/btnLogToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Token" />
+
+    <Button
+        android:id="@+id/sendNotif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Notif" />
+
 </LinearLayout>
