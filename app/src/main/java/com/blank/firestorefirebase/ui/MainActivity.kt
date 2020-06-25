@@ -1,5 +1,8 @@
 package com.blank.firestorefirebase.ui
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -47,6 +50,11 @@ class MainActivity : AppCompatActivity() {
                     val token = task.result?.token
                     this.token = token!!
 
+                    val clipboard: ClipboardManager =
+                        getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                    val clip = ClipData.newPlainText("token", token)
+                    clipboard.setPrimaryClip(clip)
+
                     // Log and toast
                     val msg = getString(R.string.msg_token_fmt, token)
                     Log.d(TAG, msg)
@@ -58,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         sendNotif.setOnClickListener {
             DataManager.pushNotif(
                 PayloadNotif(
-                    to = "token",
+                    to = "ep7HG7GRSLS7nrOyU-ocSm:APA91bHOGLGNJ3Z3HRyHWIxmWUqyy-L5mHVe6uMj12_jZhAsOm4wh_0KY5tR7Qq6GrFSPF27nKSOQW6ikQpZVfg3WgCNjIWEE5cRlY7VYitUOVzAuZq0_9sUFa7qs7d1HpcNcPSSjoX2",
                     data = Data(
                         idTarget = "punya id target",
                         idPengirim = "ini idnya pengirim",
