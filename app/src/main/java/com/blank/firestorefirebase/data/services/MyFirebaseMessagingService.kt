@@ -21,12 +21,12 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         Log.d(TAG, "From: ${remoteMessage.from}")
-        sendNotification("ada")
 
         remoteMessage.data.isNotEmpty().let {
             Log.d(TAG, "Message data payload: " + remoteMessage.data)
             val jsonData = Gson().toJson(remoteMessage.data)
             Log.d(TAG, "RESPONSE $jsonData")
+            sendNotification(jsonData)
 
             if (true) {
                 scheduleJob()
