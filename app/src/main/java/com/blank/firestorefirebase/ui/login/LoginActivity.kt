@@ -12,6 +12,8 @@ import com.blank.firestorefirebase.ui.MainActivity
 import com.blank.firestorefirebase.ui.register.RegisterActivity
 import com.blank.firestorefirebase.utils.FirebaseUtils
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.ktx.Firebase
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.Dispatchers

@@ -1,40 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".ui.MainActivity">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnListUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="List Users" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".ui.MainActivity">
 
-    <Button
-        android:id="@+id/btnFriends"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="List Friends" />
+        <Button
+            android:id="@+id/btnListUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List Users" />
 
-    <Button
-        android:id="@+id/btnBattle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Battle" />
+        <Button
+            android:id="@+id/btnFriends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List Friends" />
 
-    <Button
-        android:id="@+id/btnLogToken"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log Token" />
+        <Button
+            android:id="@+id/btnLogToken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log Token" />
 
-    <Button
-        android:id="@+id/sendNotif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send Notif" />
+        <Button
+            android:id="@+id/sendNotif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Notif" />
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/getImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/test" />
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Foto" />
+    </LinearLayout>
+</ScrollView>
