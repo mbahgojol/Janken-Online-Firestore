@@ -41,7 +41,7 @@ class TemanAdapter(
 
     inner class TemanViewHolder(private val v: View) : RecyclerView.ViewHolder(v) {
         fun bind(users: Users) {
-            v.tvNama.text = users.nama
+            v.tvNama.text = users.username
             v.btnAddFriends.text = "Battle"
             v.btnAddFriends.setOnClickListener {
                 listener.invoke(users)

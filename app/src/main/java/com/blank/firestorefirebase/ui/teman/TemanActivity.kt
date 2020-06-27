@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.blank.firestorefirebase.R
 import com.blank.firestorefirebase.data.model.Users
 import com.blank.firestorefirebase.db
+import com.blank.firestorefirebase.mAuth
 import com.blank.firestorefirebase.ui.battle.BattleActivity
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.firestore.ktx.toObjects
@@ -34,8 +35,9 @@ class TemanActivity : AppCompatActivity() {
             adapter = temanAdapter
         }
 
+        val id = mAuth.currentUser?.uid
         db.collection("users")
-            .whereEqualTo("nama", "Ghozi Mahdi")
+            .whereEqualTo("id", id)
             .addSnapshotListener { snapshot, e ->
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e)

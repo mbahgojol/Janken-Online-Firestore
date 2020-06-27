@@ -39,7 +39,7 @@ class UsersAdapter(
 
     inner class UsersViewHolder(private val v: View) : RecyclerView.ViewHolder(v) {
         fun bind(users: Users) {
-            v.tvNama.text = users.nama
+            v.tvNama.text = users.username
             v.btnAddFriends.setOnClickListener {
                 listener.invoke(users)
             }

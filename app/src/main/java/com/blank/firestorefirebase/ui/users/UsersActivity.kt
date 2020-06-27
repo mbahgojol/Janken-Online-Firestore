@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.blank.firestorefirebase.R
 import com.blank.firestorefirebase.data.model.Users
 import com.blank.firestorefirebase.db
+import com.blank.firestorefirebase.mAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.toObjects
 import kotlinx.android.synthetic.main.activity_users.*
@@ -16,7 +17,7 @@ class UsersActivity : AppCompatActivity() {
 
     private val TAG = UsersActivity::class.java.simpleName
     private val adapter = UsersAdapter()
-    private var myId = ""
+    val id = mAuth.currentUser?.uid
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +45,7 @@ class UsersActivity : AppCompatActivity() {
                     val model = snapshot.toObjects<Users>().toMutableList()
                     val data = mutableListOf<Users>()
                     model.forEachIndexed { index, doc ->
-                        if (doc.nama == "Ghozi Mahdi") {
-                            myId = doc.id
-                        } else {
+                        if (doc.id != id) {
                             doc.id = doc.id
                             data.add(doc)
                         }
@@ -58,9 +57,9 @@ class UsersActivity : AppCompatActivity() {
             }
 
         adapter.setListener { user ->
-            addFriendToTarget(myId, user.id) {
+            addFriendToTarget(id!!, user.id) {
                 Toast.makeText(this, "Teman berhasil ditambahkan", Toast.LENGTH_LONG).show()
-                addFriendToTarget(user.id, myId)
+                addFriendToTarget(user.id, id)
             }
         }
     }
