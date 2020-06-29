@@ -72,6 +72,7 @@ class UsersActivity : AppCompatActivity() {
             data = NotifFriends.Data(
                 idTarget = users.id,
                 idPengirim = id,
+                statusFriend = false,
                 title = "Permintaan mintaan pertemanan",
                 message = "${user?.username}  Ingin berteman dengan Anda!",
                 type = AppConstant.FRIENDS_NOTIF

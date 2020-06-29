@@ -32,6 +32,7 @@ class NotificationActionReceiver : BroadcastReceiver() {
                     to = notifToken,
                     data = NotifFriends.Data(
                         idTarget = notifData?.idTarget,
+                        statusFriend = true,
                         idPengirim = notifData?.idPengirim,
                         title = "Permintaan pertemanan",
                         message = "Permintaan pertemanan anda sudah diterima oleh $name",
