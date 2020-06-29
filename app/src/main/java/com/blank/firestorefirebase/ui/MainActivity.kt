@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.blank.chapter9.DataManager
 import com.blank.firestorefirebase.R
-import com.blank.firestorefirebase.data.model.Data
 import com.blank.firestorefirebase.data.model.PayloadNotif
 import com.blank.firestorefirebase.data.model.Users
 import com.blank.firestorefirebase.db
@@ -151,7 +150,7 @@ class MainActivity : AppCompatActivity() {
         sendNotif.setOnClickListener {
             val modelNotif = PayloadNotif(
                 to = "ep7HG7GRSLS7nrOyU-ocSm:APA91bHOGLGNJ3Z3HRyHWIxmWUqyy-L5mHVe6uMj12_jZhAsOm4wh_0KY5tR7Qq6GrFSPF27nKSOQW6ikQpZVfg3WgCNjIWEE5cRlY7VYitUOVzAuZq0_9sUFa7qs7d1HpcNcPSSjoX2",
-                data = Data(
+                data = PayloadNotif.Data(
                     idTarget = "punya id target",
                     idPengirim = "ini idnya pengirim",
                     title = "Lagi ngpush notif dari client",

@@ -1,6 +1,7 @@
 package com.blank.chapter9
 
 import com.blank.firestorefirebase.BuildConfig
+import com.blank.firestorefirebase.data.model.NotifFriends
 import com.blank.firestorefirebase.data.model.PayloadNotif
 import com.blank.firestorefirebase.utils.AppConstant
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -36,6 +37,11 @@ object DataManager {
     }
 
     fun pushNotif(payloadNotif: PayloadNotif) = servicesNotif()
+        .pushNotif(AppConstant.SERVER_KEY, payloadNotif)
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+
+    fun pushNotif(payloadNotif: NotifFriends) = servicesNotif()
         .pushNotif(AppConstant.SERVER_KEY, payloadNotif)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())

@@ -9,9 +9,18 @@ import com.google.firebase.ktx.Firebase
 
 class AppLoader : Application() {
 
+    companion object {
+        lateinit var appContext: Context
+    }
+
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         MultiDex.install(this)
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        appContext = applicationContext
     }
 }
 

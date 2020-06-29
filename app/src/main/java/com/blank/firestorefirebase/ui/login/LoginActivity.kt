@@ -7,13 +7,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.blank.firestorefirebase.R
+import com.blank.firestorefirebase.data.db.SharedPref
 import com.blank.firestorefirebase.db
 import com.blank.firestorefirebase.ui.MainActivity
 import com.blank.firestorefirebase.ui.register.RegisterActivity
 import com.blank.firestorefirebase.utils.FirebaseUtils
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.iid.FirebaseInstanceId
-import com.google.firebase.ktx.Firebase
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.Dispatchers
@@ -46,11 +45,13 @@ class LoginActivity : AppCompatActivity() {
                         val id = mAuth.currentUser?.uid
 
                         GlobalScope.launch(Dispatchers.IO) {
+                            val notifToken = FirebaseUtils.getTokenNotification()
                             db.collection("users")
                                 .document(id!!)
-                                .update("tokenNotif", FirebaseUtils.getTokenNotification())
+                                .update("tokenNotif", notifToken)
                                 .addOnSuccessListener {
                                     if (dialog.isShowing) dialog.hide()
+                                    SharedPref.setTokenNotif(notifToken)
                                     startActivity(
                                         Intent(
                                             this@LoginActivity,

@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.blank.firestorefirebase.R
+import com.blank.firestorefirebase.data.db.SharedPref
 import com.blank.firestorefirebase.db
 import com.blank.firestorefirebase.utils.FirebaseUtils
 import com.google.firebase.auth.FirebaseAuth
@@ -49,6 +50,7 @@ class RegisterActivity : AppCompatActivity() {
                         val id = user?.uid.toString()
 
                         GlobalScope.launch(Dispatchers.IO) {
+                            val notifToken = FirebaseUtils.getTokenNotification()
 
                             val userData = hashMapOf<String, Any>()
                                 .apply {
@@ -57,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
                                     put("email", user?.email!!)
                                     put("umur", umur.toInt())
                                     put("timestamp", FieldValue.serverTimestamp())
-                                    put("tokenNotif", FirebaseUtils.getTokenNotification())
+                                    put("tokenNotif", notifToken)
                                     put("gender", "L")
                                 }
 
@@ -67,6 +69,7 @@ class RegisterActivity : AppCompatActivity() {
                                 .addOnSuccessListener {
                                     Log.d(TAG, "DocumentSnapshot added with ID: $id")
 
+                                    SharedPref.setTokenNotif(notifToken)
 
                                     if (dialog.isShowing) dialog.hide()
                                     Toast.makeText(
